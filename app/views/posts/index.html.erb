@@ -1,0 +1,12 @@
+<h1>HashtAggie's blog</h1>
+
+<% @posts.each do |post| %>
+<h2><%= link_to post.title, post %></h2>
+  <p>
+<%= truncate post.text %>
+ </p>
+    <% end %>
+
+<br/>
+
+<%= link_to 'New post', new_post_path %>
