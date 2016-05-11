@@ -7,4 +7,5 @@ RSpec.describe PostsController, type: :routing do
       expect(:get => "/").to route_to("welcome#index")
     end
   end
+  end
 end
