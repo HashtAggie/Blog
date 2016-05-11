@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <header class="navbar navbar-fixed-top navbar-default">
+    <title>Blog</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!-- CSS  -->
+  <link href='https://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <div class="container">
+      <nav>
+        <div class="nav-wrapper container">
+          <ul class="nav navbar-nav">
+          <li><%= link_to "Posts", posts_path %></li>
+            <ul class="right hide-on-med-and-down">
+              <% if !user_signed_in? %>
+             <li><%= link_to "Log In", new_user_session_path %></li>
+             <% else %>
+             <li><span class="header black-text"><%= current_user.mail %></span></li>
+             <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+             <% end %>
+            </ul>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  </header>
+
 </head>
 <body>
 
