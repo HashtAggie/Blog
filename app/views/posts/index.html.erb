@@ -1,11 +1,21 @@
-<h1>HashtAggie's blog</h1>
 
-<% @posts.each do |post| %>
-<h2><%= link_to post.title, post %></h2>
-  <p>
-<%= truncate post.text %>
- </p>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <h1>HashtAggie's blog</h1>
+    <div class="col s4">
+      <p class="flow-text"><% @posts.each do |post| %>
+        <h2><%= link_to post.title, post %></h2>
+          <% end %></p></div>
+
+    </div>
+    <div class="col s4">
+      <p class="flow-text"></p>
+    </div>
+    <div class="col s4">
+      <p class="flow-text"></p>
+    </div>
+
+
 
 <br/>
 
