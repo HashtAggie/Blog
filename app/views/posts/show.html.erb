@@ -2,25 +2,29 @@
 
 <div class="container">
   <div class="row">
-    <h1>HashtAggie's blog</h1>
-    <div class="col s4">
-      <p class="flow-text"><p>
-        <strong>Title:</strong>
-        <%= @post.title %>
-      </p>
-    </div>
-  </div>
+      <div class="col s4">
+        <p class="flow-text"
+          <p>
+            <%= @post.title %>
+          </p>
+        </p>
+      </div>
     <div class="col s4">
       <p class="flow-text">
         <p>
-        <strong>Text:</strong>
         <%= @post.text %>
         </p>
       </p>
     </div>
-    <div class="col s4">
-      <p class="flow-text"><%= link_to 'Edit', edit_post_path(@post) %> |
-      <%= link_to 'Back', posts_path %> |
-      <%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?" %>
-    </p>
-    </div>
+      <div>
+        <div class="col s4">
+          <p class="flow-text">
+            <p><%=image_tag @post.image_url.to_s %>
+            </p>
+          </p>
+        </div>
+        <br>
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Back', posts_path %> |
+        <%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?" %>
+</div>
