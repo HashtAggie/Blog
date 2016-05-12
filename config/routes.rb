@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  default_url_options :host => "localhost:3000"
 
-  devise_for :users
-  resources :posts do
-  resources :users
-end
+    devise_for :admins
+    devise_for :users
+    resources :posts do
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
