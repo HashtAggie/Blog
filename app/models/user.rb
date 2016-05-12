@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :posts
+  has_and_belongs_to_many :comments
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +11,7 @@ class User < ActiveRecord::Base
 attr_accessor :login
 
 validate :validate_username
+validates_processing_of :avatar
 
  def validate_username
    if User.where(email: username).exists?

@@ -7,8 +7,6 @@ RSpec.describe PostsController, type: :controller do
     it "assigns all posts to @posts" do
       get :index
       expect(assigns(:posts)).to eq posts
-    end
-
 
   end
 end

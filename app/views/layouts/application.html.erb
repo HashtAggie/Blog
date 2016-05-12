@@ -15,21 +15,25 @@
       <nav>
         <div class="nav-wrapper container">
           <ul class="nav navbar-nav">
-          <li><%= link_to "Posts", posts_path %></li>
+           <li><%= link_to "Posts", posts_path %></li>
+           <li><%= link_to "About me", about_path %></li>
+           <li><%= link_to "Contact", contact_path %></li>
             <ul class="right hide-on-med-and-down">
               <% if !user_signed_in? %>
-             <li><%= link_to "Log In", new_user_session_path %></li>
-             <% else %>
-             <li><span class="header black-text"><%= current_user.username %></span></li>
-             <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+               <li><%= link_to "Log In", new_user_session_path%></li>
+              <% else %>
+               <li><span class="header white-text"><%= current_user.username%></span></li>
+               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+                <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
              <% end %>
+
+
             </ul>
-        </ul>
-      </nav>
-    </div>
+          </ul>
+        </div>
+    </nav>
   </div>
   </header>
-
 </head>
 <body>
 

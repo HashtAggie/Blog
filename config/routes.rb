@@ -2,15 +2,16 @@ Rails.application.routes.draw do
   default_url_options :host => "localhost:3000"
 
     devise_for :admins
+    resources :posts
     devise_for :users
-    resources :posts do
-    end
+    resources :welcome
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root  'welcome#index'
-
+    get 'about' => 'welcome#about'
+    get 'contact' => 'welcome#contact'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
