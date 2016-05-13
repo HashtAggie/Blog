@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <header class="navbar navbar-fixed-top navbar-default">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <header class="navbar navbar-fixed-top navbar">
     <title>Blog</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <div class="container">
       <nav>
-        <div class="nav-wrapper container">
-          <ul class="nav navbar-nav">
-           <li><%= link_to "Posts", posts_path %></li>
-           <li><%= link_to "About me", about_path %></li>
-           <li><%= link_to "Contact", contact_path %></li>
+        <div class="nav-wrapper">
+            <ul class="nav navbar-nav">
+             <li><%= link_to "Posts", posts_path %></li>
+             <li><%= link_to "About me", about_path %></li>
+             <li><%= link_to "Contact", contact_path %></li>
+            </ul>
             <ul class="right hide-on-med-and-down">
               <% if !user_signed_in? %>
                <li><%= link_to "Log In", new_user_session_path%></li>
@@ -23,16 +23,37 @@
                 <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
              <% end %>
             </ul>
-          </ul>
         </div>
-    </nav>
-  </div>
+      </nav>
   </header>
 </head>
 <body>
+
 
 <%= yield %>
 
 
 </body>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h4 class="white-text">For more information click the following links</h4>
+        </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://twitter.com/Arras80">Twitter</a></li>
+              <li><a class="grey-text text-lighten-3" href="https://nl.linkedin.com/in/ahlam-el-arras-570b8ba7">LinkedIn</a></li>
+              <li><a class="grey-text text-lighten-3" href="https://github.com/HashtAggie">Github</a></li>
+            </ul>
+          </div>
+        </div>
+          <div class="footer-copyright">
+            <div class="container">
+              © 2016 Copyright #_aggie
+            </div>
+          </div>
+    </div>
+  </footer>
 </html>
