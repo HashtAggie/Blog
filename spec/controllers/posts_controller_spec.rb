@@ -12,9 +12,18 @@ RSpec.describe PostsController, type: :controller do
     describe "GET #show" do
       let(:post) { FactoryGirl.create(:post) }
 
-    it "assigns the requested post as @post" do
-    get :show, { id: post.to_param }
-    expect(assigns(:post)).to eq post
+      it "assigns the requested post as @post" do
+      get :show, { id: post.to_param }
+      expect(assigns(:post)).to eq post
+      end
+    end
+
+    describe "Get #edit" do
+      let(:post) { FactoryGirl.create(:post) }
+
+      it "assigns to edit from @post" do
+      get :edit, { id: post.to_param }
+      expect(assigns(:title)).to eq(@post)
       end
     end
 end

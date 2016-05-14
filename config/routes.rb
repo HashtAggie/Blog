@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
   default_url_options :host => "localhost:3000"
 
     devise_for :admins
-    resources :posts
     devise_for :users
+    resources :posts do
+      resources :comments
+    end
+
     resources :welcome
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def become
     return unless current_user.is_an_admin?
