@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   default_url_options :host => "localhost:3000"
 
-    devise_for :admins
-    devise_for :users
+    devise_for :users, controllers: { registrations: "registrations"}
     resources :posts do
       resources :comments
     end

@@ -1,4 +1,12 @@
 class PostsController < ApplicationController
+   before_action :authorize, except: [:show, :index]
+
+   def authorize
+      if current_user.nil?
+        redirect_to new_user_session_url, alert: "Not authorized! Please log in."
+      end
+   end
+
   def index
     @posts = Post.all
 
@@ -14,6 +22,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post = Post.new
 
     respond_to do |format|
       format.html
@@ -23,6 +32,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     if @post.save
         redirect_to posts_url, :notice => "Your post was saved"
@@ -47,6 +57,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find( params[:id])
+    @post.user = current_user
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.'}

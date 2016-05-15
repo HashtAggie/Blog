@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :comments
+  attr_accessor :username, :email
+  has_and_belongs_to_many :posts
   mount_uploader :avatar, AvatarUploader
 
   # Include default devise modules. Others available are:
